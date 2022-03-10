@@ -1,0 +1,87 @@
+.header{
+	background-color: teal;
+	grid-area: header;	/*para que el contenedor sepa como se llama cada uno lo hago con grid-area*/
+}
+.nav{
+	background-color: khaki;
+	grid-area: nav;
+}
+.principal{
+	/*background-color: lightblue;*/
+	grid-area: principal;
+	display: grid;
+	grid-gap: 0.5em;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-template-areas:
+	"primerCaja primerCaja"
+	"segundaCaja tercerCaja"; 
+}
+.aside{
+	background-color: goldenrod;
+	grid-area: aside;
+}
+.footer{
+	background-color: darkseagreen;
+	grid-area: footer;
+}
+.grid{
+	height: 100vh; /*ocupa el margen completo*/
+	margin: 0%;
+	display:grid;
+	grid-gap: 0.5em;/*espacio entre contenedores*/
+	grid-template-columns: 1fr 5fr 1fr;/*columnas*/
+	grid-template-rows: 1fr 18fr 1fr;/*1fr es fraccionar la imagen es recomdable en lugar de porcentaje*/			/*filas: 5% header auto para segunda fila 5% pie de la pagina*/
+	grid-template-areas:
+	"header header header" /*para que sepa cual es el nombre de cada uno arriba ocupo grid-area*/
+	"nav principal aside"
+	"footer footer footer"
+}
+
+@media only screen and (max-width: 768px){
+	.grid{
+	height: 100vh; /*ocupa el margen completo*/
+	margin: 0%;
+	display:grid;
+	grid-gap: 0.5em;/*espacio entre contenedores*/
+	grid-template-columns: 100%;/*columnas*/
+	grid-template-rows: repeat(4,auto);/*fila:repita 4 veces automaticamente*/
+	grid-template-areas:
+	"header" /*para que sepa cual es el nombre de cada uno arriba ocupo grid-area*/
+	"principal"
+	"aside"
+	"footer";
+	}
+	.nav{display:none;}/*para que no aparesca el nav*/
+
+.principal{
+	/*background-color: lightblue;*/
+	grid-area: principal;
+	display: grid;
+	grid-gap: 0.5em;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 1fr 1fr;/*3 filas vamos a tener*/
+	grid-template-areas:
+	"primerCaja"
+	"segundaCaja"
+	"tercerCaja"; 
+}
+}
+
+
+.caja1{
+	background-color: dimgrey;
+	grid-area: primerCaja;
+	/*ejemplo
+	grid-row: 1;
+	grid-column: 1/3;/*las lineas que forman las columnas indicamos las lineas donde empieza y termina*/
+
+}
+.caja2{
+	background-color: dimgrey;
+	grid-area: segundaCaja;
+}
+.caja3{
+	background-color: dimgrey;
+	grid-area: tercerCaja;
+}
